@@ -27,7 +27,6 @@
                      <p>${product.description}</p>
                      <p>$${product.unitPrice}</p>
                      <p>Available ${product.unitsInStock} units in stock</p>
-                     <p>Manufacturer: ${product.manufacturer }</p>
                   </div>
                </div>
             </div>
