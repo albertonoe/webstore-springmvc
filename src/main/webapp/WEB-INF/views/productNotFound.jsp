@@ -19,7 +19,7 @@
 			</div>
 		</section>
 		
-		<section>
+		<section> 
 			<div class="container">
 				<p>${url}</p>
 				<p>${exception}</p>
