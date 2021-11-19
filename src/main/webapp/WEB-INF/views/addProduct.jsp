@@ -1,14 +1,11 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html;
-charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet"
-	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/
-bootstrap.min.css">
+	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 <title>Products</title>
 </head>
 <body>
@@ -21,15 +18,13 @@ bootstrap.min.css">
 		</div>
 	</section>
 	<section class="container">
-		<form:form method="POST" modelAttribute="newProduct"
-			class="form-horizontal" enctype="multipart/form-data">
+		<form:form method="POST" modelAttribute="newProduct" class="form-horizontal" enctype="multipart/form-data">
 			<fieldset>
 				<legend>Add new product</legend>
 
 				<div class="form-group">
-					<label class="control-label col-lg-2 col-lg-2" for="productId">
-						<spring:message code="addProduct.form.productId.label" />
-					</label>
+					<label class="control-label col-lg-2 col-lg-2" for="productId"><spring:message
+							code="addProduct.form.productId.label" /></label>
 					<div class="col-lg-10">
 						<form:input id="productId" path="productId" type="text"
 							class="form:input-large" />
@@ -90,8 +85,9 @@ bootstrap.min.css">
 				</div>
 
 				<div class="form-group">
-					<label class="control-label col-lg-2" for="condition"><spring:message
-							code="addProduct.form.condition.label" /></label>
+					<label class="control-label col-lg-2" for="condition">
+						<spring:message code="addProduct.form.condition.label" />
+					</label>
 					<div class="col-lg-10">
 						<form:radiobutton path="condition" value="New" />
 						New
@@ -101,15 +97,16 @@ bootstrap.min.css">
 						Refurbished
 					</div>
 				</div>
+
 				<div class="form-group">
-					<label class="control-label col-lg-2" for="productImage"> <spring:message
-							code="addProduct.form.productImage.label" />
+					<label class="control-label col-lg-2" for="productImage">
+						<spring:message code="addProduct.form.productImage.label" />
 					</label>
 					<div class="col-lg-10">
-						<form:input id="productImage" path="productImage" type="file"
-							class="form:input-large" />
+						<form:input id="productImage" path="productImage" type="file" class="form:input-large" />
 					</div>
 				</div>
+
 
 				<div class="form-group">
 					<div class="col-lg-offset-2 col-lg-10">
@@ -122,3 +119,4 @@ bootstrap.min.css">
 	</section>
 </body>
 </html>
+

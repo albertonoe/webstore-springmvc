@@ -70,23 +70,26 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/products/add", method = RequestMethod.POST)
-	public String processAddNewProductForm(@ModelAttribute("newProduct") Product newProduct, BindingResult result, HttpServletRequest request) {
+	public String processAddNewProductForm(@ModelAttribute("newProduct") Product newProduct, BindingResult result,
+			HttpServletRequest request) {
 		String[] suppressedFields = result.getSuppressedFields();
 		if (suppressedFields.length > 0) {
-			throw new RuntimeException("Attempting to bind disallowed fields: " + StringUtils.arrayToCommaDelimitedString(suppressedFields));
+			throw new RuntimeException("Attempting to bind disallowed fields: "
+					+ StringUtils.arrayToCommaDelimitedString(suppressedFields));
 		}
-		
+
 		MultipartFile productImage = newProduct.getProductImage();
 		String rootDirectory = request.getSession().getServletContext().getRealPath("/");
-		
-		if (productImage!=null && !productImage.isEmpty()) {
+
+		if (productImage != null && !productImage.isEmpty()) {
 			try {
-				productImage.transferTo(new File(rootDirectory+"resources\\images\\"+ newProduct.getProductId() + ".png"));
+				productImage.transferTo(
+						new File(rootDirectory + "resources\\images\\" + newProduct.getProductId() + ".png"));
 			} catch (Exception e) {
 				throw new RuntimeException("Product Image saving failed", e);
 			}
 		}
-		
+
 		productService.addProduct(newProduct);
 		return "redirect:/market/products";
 	}
