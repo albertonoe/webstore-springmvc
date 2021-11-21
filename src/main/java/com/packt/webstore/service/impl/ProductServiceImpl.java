@@ -49,5 +49,5 @@ public class ProductServiceImpl implements ProductService {
 	public void addProduct(Product product) {
 		productRepository.addProduct(product);
 	}
-	
+
 }

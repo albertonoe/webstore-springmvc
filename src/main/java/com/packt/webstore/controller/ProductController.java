@@ -82,6 +82,7 @@ public class ProductController {
 	@RequestMapping(value = "/products/add", method = RequestMethod.POST)
 	public String processAddNewProductForm(@ModelAttribute("newProduct") Product newProduct, BindingResult result,
 			HttpServletRequest request) {
+
 		String[] suppressedFields = result.getSuppressedFields();
 		if (suppressedFields.length > 0) {
 			throw new RuntimeException("Attempting to bind disallowed fields: "
@@ -107,7 +108,7 @@ public class ProductController {
 	@InitBinder
 	public void initialiseBinder(WebDataBinder binder) {
 		binder.setAllowedFields("productId", "name", "unitPrice", "description", "manufacturer", "category",
-				"unitsInStock", "condition", "productImage");
+				"unitsInStock", "condition", "productImage", "language");
 	}
 
 	@ExceptionHandler(ProductNotFoundException.class)
@@ -117,7 +118,11 @@ public class ProductController {
 		mav.addObject("exception", exception);
 		mav.addObject("url", req.getRequestURL() + "?" + req.getQueryString());
 		mav.setViewName("productNotFound");
-
 		return mav;
+	}
+
+	@RequestMapping("/products/invalidPromoCode")
+	public String invalidPromoCode() {
+		return "invalidPromoCode";
 	}
 }
