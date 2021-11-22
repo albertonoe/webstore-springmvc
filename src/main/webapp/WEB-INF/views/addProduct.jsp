@@ -1,6 +1,6 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -10,6 +10,13 @@
 </head>
 <body>
 	<section>
+		<div class="pull-right" style="padding-right: 50px">
+			<a href="?language=en">English</a>|<a href="?language=nl">Dutch</a> <a
+				href="<c:url value="/logout" />">Logout</a>
+		</div>
+	</section>
+
+	<section>
 		<div class="jumbotron">
 			<div class="container">
 				<h1>Products</h1>
@@ -18,7 +25,8 @@
 		</div>
 	</section>
 	<section class="container">
-		<form:form method="POST" modelAttribute="newProduct" class="form-horizontal" enctype="multipart/form-data">
+		<form:form method="POST" modelAttribute="newProduct"
+			class="form-horizontal" enctype="multipart/form-data">
 			<fieldset>
 				<legend>Add new product</legend>
 
@@ -85,9 +93,8 @@
 				</div>
 
 				<div class="form-group">
-					<label class="control-label col-lg-2" for="condition">
-						<spring:message code="addProduct.form.condition.label" />
-					</label>
+					<label class="control-label col-lg-2" for="condition"><spring:message
+							code="addProduct.form.condition.label" /></label>
 					<div class="col-lg-10">
 						<form:radiobutton path="condition" value="New" />
 						New
@@ -99,11 +106,12 @@
 				</div>
 
 				<div class="form-group">
-					<label class="control-label col-lg-2" for="productImage">
-						<spring:message code="addProduct.form.productImage.label" />
+					<label class="control-label col-lg-2" for="productImage"> <spring:message
+							code="addProduct.form.productImage.label" />
 					</label>
 					<div class="col-lg-10">
-						<form:input id="productImage" path="productImage" type="file" class="form:input-large" />
+						<form:input id="productImage" path="productImage" type="file"
+							class="form:input-large" />
 					</div>
 				</div>
 
@@ -119,4 +127,3 @@
 	</section>
 </body>
 </html>
-
